@@ -37,6 +37,10 @@ public class DeckOfCards {
        }
     }
 
+    public void CheckHand(){
+
+    }
+
     @Override
     public String toString() {
         return "DeckOfCards{" +
