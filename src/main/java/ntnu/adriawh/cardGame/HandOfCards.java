@@ -22,7 +22,9 @@ public class HandOfCards {
     public String getFlush() {
         char[] suit = { 'S', 'H', 'D', 'C' };
         for(char c : suit){
-            if(hand.stream().filter(playingCard -> Character.toString(playingCard.getSuit()).equals(Character.toString(c))).count() >= 5){
+            if(hand.stream()
+                    .filter(playingCard -> Character.toString(playingCard.getSuit()).equals(Character.toString(c)))
+                    .count() >= 5){
                 return "yes";
             }
         }
@@ -42,7 +44,9 @@ public class HandOfCards {
     }
 
     public String getCardsOfHearts() {
-       ArrayList<PlayingCard> cardsOfHearts = (ArrayList<PlayingCard>)hand.stream().filter(playingCard -> Character.toString(playingCard.getSuit()).equals("H")).collect(Collectors.toList());
+       ArrayList<PlayingCard> cardsOfHearts = (ArrayList<PlayingCard>)hand.stream()
+               .filter(playingCard -> Character.toString(playingCard.getSuit()).equals("H"))
+               .collect(Collectors.toList());
 
        if(cardsOfHearts.size() < 1){
             return "no cards";

@@ -1,13 +1,7 @@
 package ntnu.adriawh;
 
-import java.io.IOException;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import ntnu.adriawh.cardGame.DeckOfCards;
 import ntnu.adriawh.cardGame.HandOfCards;
@@ -30,7 +24,6 @@ public class PrimaryController {
     private final DeckOfCards deck = new DeckOfCards();
     private HandOfCards hand;
 
-
     @FXML
     private void dealHand(){
         int handSize = Integer.parseInt(numberOfCards.getText());
@@ -52,5 +45,4 @@ public class PrimaryController {
         flush.setText(hand.getFlush());
         queenOfSpades.setText(hand.getQueenOfSpades());
     }
-
 }
