@@ -36,11 +36,12 @@ public class PrimaryController {
     private void dealHand(){
         showHand.getChildren().clear();
         int handSize = Integer.parseInt(numberOfCards.getText());
-        if(handSize > 52 || handSize <=0){
+        if(handSize > 52 || handSize <5){
             numberOfCards.setText(null);
             numberOfCards.setPromptText("Number of cards must be lower than 52");
-            Text t = new Text("False input, try again. \n Number of cards must be higher than 0 and lower than 52");
+            Text t = new Text("False input, try again. \n Number of cards must be higher than 4 and lower than 52");
             showHand.getChildren().add(t);
+            return;
         }
         hand = deck.DealHand(handSize);
 
