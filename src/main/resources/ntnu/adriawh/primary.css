@@ -1,0 +1,16 @@
+#box{
+    -fx-alignment: top-center;
+    -fx-padding: 50 0 0 0;
+    -fx-min-width: 300;
+}
+#dataBox{
+    -fx-alignment: top-center;
+}
+
+#title{
+    -fx-font-size: 25;
+}
+
+#data{
+    -fx-font-size:40;
+}

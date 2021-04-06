@@ -5,54 +5,55 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
+<?import java.net.URL?>
 
-<VBox alignment="CENTER" prefHeight="424.0" prefWidth="669.0" spacing="20.0" xmlns="http://javafx.com/javafx/15.0.1"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ntnu.adriawh.PrimaryController">
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-   </padding>
-   <HBox prefHeight="264.0" prefWidth="629.0">
-      <Pane prefHeight="177.0" prefWidth="410.0">
-         <Text fx:id="handOfCards"/>
-      </Pane>
-      <VBox prefHeight="264.0" prefWidth="172.0">
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cards in hand:"/>
-         <TextField fx:id="numberOfCards" promptText="Number of cards in hand" text="5"/>
-         <Button fx:id="dealHand" onAction="#dealHand" prefHeight="17.0" prefWidth="100.0" text="Deal Hand">
-            <cursor>
-               <Cursor fx:constant="HAND"/>
-            </cursor>
-         </Button>
-         <Button fx:id="checkHand" onAction="#checkHand" prefHeight="29.0" prefWidth="97.0" text="Check hand">
-            <cursor>
-               <Cursor fx:constant="HAND"/>
-            </cursor>
-         </Button>
+   <VBox alignment="CENTER" prefHeight="424.0" prefWidth="669.0" spacing="20.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ntnu.adriawh.PrimaryController">
+      <padding>
+         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+      </padding>
+      <HBox prefHeight="264.0" prefWidth="1000.0">
+         <VBox fx:id="showHand" prefHeight="177.0" prefWidth="800.0" maxWidth="800.0">
+            <HBox />
+         </VBox>
+         <VBox prefHeight="264.0" prefWidth="100.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cards in hand:" />
+            <TextField fx:id="numberOfCards" promptText="Number of cards in hand" text="5" />
+            <Button fx:id="dealHand" onAction="#dealHand" prefHeight="17.0" prefWidth="100.0" text="Deal Hand">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="checkHand" onAction="#checkHand" prefHeight="29.0" prefWidth="100.0" text="Check hand">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </VBox>
+      </HBox>
+      <VBox id="dataBox" prefHeight="200.0" prefWidth="100.0">
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <VBox id="box" prefHeight="100.0" prefWidth="200.0">
+               <Text id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Sum of the faces" />
+               <Text id="data" fx:id="sumOfFaces" strokeType="OUTSIDE" strokeWidth="0.0" text="null" />
+            </VBox>
+            <VBox id="box" prefHeight="100.0" prefWidth="200.0">
+               <Text id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Flush:" />
+               <Text id="data" fx:id="flush" strokeType="OUTSIDE" strokeWidth="0.0" text="null" />
+            </VBox>
+            <VBox id="box" prefHeight="100.0" prefWidth="200.0">
+               <Text id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Queen of spades:" />
+               <Text id="data" fx:id="queenOfSpades" strokeType="OUTSIDE" strokeWidth="0.0" text="null" />
+            </VBox>
+         </HBox>
+            <VBox fx:id="boxCardsOfHearts" id="box" prefHeight="100.0" prefWidth="200.0">
+               <Text id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Cards of hearts:   " />
+               <Text id="data" fx:id="cardsOfHearts" strokeType="OUTSIDE" strokeWidth="2.0" text="No cards" />
+            </VBox>
       </VBox>
-   </HBox>
-   <VBox prefHeight="200.0" prefWidth="100.0">
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <HBox prefHeight="100.0" prefWidth="200.0">
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sum of the faces"/>
-            <Text fx:id="sumOfFaces" strokeType="OUTSIDE" strokeWidth="0.0" text="null"/>
-         </HBox>
-         <HBox prefHeight="100.0" prefWidth="200.0">
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cards of hearts:   "/>
-            <Text fx:id="cardsOfHearts" strokeType="OUTSIDE" strokeWidth="0.0" text="No cards"/>
-         </HBox>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <HBox prefHeight="100.0" prefWidth="200.0">
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flush:"/>
-            <Text fx:id="flush" strokeType="OUTSIDE" strokeWidth="0.0" text="null"/>
-         </HBox>
-         <HBox prefHeight="100.0" prefWidth="200.0">
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Queen of spades:"/>
-            <Text fx:id="queenOfSpades" strokeType="OUTSIDE" strokeWidth="0.0" text="null"/>
-         </HBox>
-      </HBox>
+   <stylesheets>
+      <URL value="@primary.css"/>
+   </stylesheets>
    </VBox>
-</VBox>
+

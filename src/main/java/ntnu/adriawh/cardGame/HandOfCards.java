@@ -1,6 +1,8 @@
 package ntnu.adriawh.cardGame;
 
+import javafx.scene.image.Image;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class HandOfCards {
@@ -8,15 +10,12 @@ public class HandOfCards {
     private final ArrayList<PlayingCard> hand;
 
     public HandOfCards(ArrayList<PlayingCard> hand){
+        hand.sort(Comparator.comparing(PlayingCard::getAsString));
         this.hand = hand;
     }
 
-    public String getHand(){
-        StringBuilder result = new StringBuilder();
-        for(PlayingCard p : hand){
-            result.append(p.getAsString()).append("  ");
-        }
-        return result.toString();
+    public ArrayList<Image> getHandImages(){
+        return (ArrayList<Image>) hand.stream().map(PlayingCard::getCardImage).collect(Collectors.toList());
     }
 
     public String getFlush() {
