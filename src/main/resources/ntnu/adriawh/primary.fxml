@@ -25,11 +25,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="checkHand" onAction="#checkHand" prefHeight="29.0" prefWidth="100.0" text="Check hand">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
          </VBox>
       </HBox>
       <VBox id="dataBox" prefHeight="200.0" prefWidth="100.0">
@@ -47,7 +42,7 @@
                <Text id="data" fx:id="queenOfSpades" strokeType="OUTSIDE" strokeWidth="0.0" text="null" />
             </VBox>
          </HBox>
-            <VBox fx:id="boxCardsOfHearts" id="box" prefHeight="100.0" prefWidth="200.0">
+            <VBox id="box" prefHeight="100.0" prefWidth="200.0">
                <Text id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Cards of hearts:   " />
                <Text id="data" fx:id="cardsOfHearts" strokeType="OUTSIDE" strokeWidth="2.0" text="No cards" />
             </VBox>

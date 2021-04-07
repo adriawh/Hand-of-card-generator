@@ -25,17 +25,17 @@ public class PrimaryController {
     @FXML
     private Text queenOfSpades;
 
-
-    @FXML
-
     private final DeckOfCards deck = new DeckOfCards();
     private HandOfCards hand;
 
 
     @FXML
     private void dealHand(){
+
         showHand.getChildren().clear();
+
         int handSize = Integer.parseInt(numberOfCards.getText());
+
         if(handSize > 52 || handSize <5){
             numberOfCards.setText(null);
             numberOfCards.setPromptText("Number of cards must be lower than 52");
@@ -43,7 +43,8 @@ public class PrimaryController {
             showHand.getChildren().add(t);
             return;
         }
-        hand = deck.DealHand(handSize);
+
+        hand = deck.dealHand(handSize);
 
         HBox h = new HBox();
         showHand.getChildren().add(h);
@@ -69,17 +70,14 @@ public class PrimaryController {
         }
 
         checkHand();
-
-
     }
 
-    @FXML
     private void checkHand(){
         if(hand == null){
             return;
         }
         cardsOfHearts.setText(hand.getCardsOfHearts());
-        sumOfFaces.setText(hand.getSumOfFaces());
+        sumOfFaces.setText(String.valueOf(hand.getSumOfFaces()));
         flush.setText(hand.getFlush());
         queenOfSpades.setText(hand.getQueenOfSpades());
 
