@@ -28,7 +28,15 @@ public class PrimaryController {
     private final DeckOfCards deck = new DeckOfCards();
     private HandOfCards hand;
 
-
+    /**
+     * Method called when the user presses the dealhand button
+     *
+     * Generates a hand of card in the said size from the user.
+     *
+     * If the input is false, the user is alerted with a text
+     *
+     * Calls the checkHand() method
+     */
     @FXML
     private void dealHand(){
 
@@ -36,6 +44,7 @@ public class PrimaryController {
 
         int handSize = Integer.parseInt(numberOfCards.getText());
 
+        //Checks if the user input is within wanted limits
         if(handSize > 52 || handSize <5){
             numberOfCards.setText(null);
             numberOfCards.setPromptText("Number of cards must be lower than 52");
@@ -48,6 +57,8 @@ public class PrimaryController {
 
         HBox h = new HBox();
         showHand.getChildren().add(h);
+
+        //Sets the size of the cards based on the number of cards
         int count = 0;
         int width;
         if(handSize<=5) {
@@ -72,6 +83,9 @@ public class PrimaryController {
         checkHand();
     }
 
+    /**
+     * Checks the generated hand for different scenarios and prints them to the user
+     */
     private void checkHand(){
         if(hand == null){
             return;

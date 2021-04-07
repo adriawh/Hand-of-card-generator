@@ -3,11 +3,16 @@ package ntnu.adriawh.cardGame;
 import java.security.InvalidParameterException;
 import java.util.*;
 
+/**
+ * Class to represent a deck of cards
+ */
 public class DeckOfCards {
     private final ArrayList<PlayingCard> cards;
     private final char[] suit = { 'S', 'H', 'D', 'C' };
 
-
+    /**
+     * Constructor that generates the 52 cards that a regular stack of cards contains
+     */
     public DeckOfCards() {
         cards = new ArrayList<>();
         for (char c: suit) {
@@ -21,6 +26,12 @@ public class DeckOfCards {
         return cards;
     }
 
+    /**
+     * Creates an instance of the class handOfCards with n cards
+     * @param n number of cards to be in hand
+     * @return HandOfCards
+     * @throws InvalidParameterException A hand can only be 5 and up to 52 cards in size
+     */
     public HandOfCards dealHand(int n) throws InvalidParameterException {
         Collections.shuffle(cards);
         if(n<5 ||n>52){

@@ -59,6 +59,11 @@ public class PlayingCard {
         return face;
     }
 
+    /**
+     * Gets the associated image to the card
+     *
+     * @return image associated with card
+     */
     public Image getCardImage() {
         InputStream stream = null;
         try {
