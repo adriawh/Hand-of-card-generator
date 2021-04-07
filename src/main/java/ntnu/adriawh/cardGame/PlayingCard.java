@@ -4,6 +4,8 @@ import javafx.scene.image.Image;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.Objects;
+
 /**
  * Represents a playing card. A playing card has a number (face) between
  * 1 and 13, where 1 is called an Ace, 11 = Knight, 12 = Queen and 13 = King.
@@ -60,10 +62,10 @@ public class PlayingCard {
     public Image getCardImage() {
         InputStream stream = null;
         try {
-            stream = new FileInputStream("/Users/adrianhakvag/Documents/Skole/2_semester/Programmering 2/Obliger/Oblig_3/src/main/resources/ntnu/adriawh/PNG/" +getFace() + getSuit()+".png");
+            stream = new FileInputStream("src/main/resources/ntnu/adriawh/PNG/" +getFace() + getSuit()+".png");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        return new Image(stream);
+        return new Image(Objects.requireNonNull(stream));
     }
 }
