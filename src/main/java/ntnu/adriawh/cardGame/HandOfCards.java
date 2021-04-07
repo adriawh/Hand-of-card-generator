@@ -38,8 +38,8 @@ public class HandOfCards {
         }
     }
 
-    public String getSumOfFaces() {
-       return String.valueOf(hand.stream().mapToInt(PlayingCard::getFace).sum());
+    public int getSumOfFaces() {
+       return hand.stream().mapToInt(PlayingCard::getFace).sum();
     }
 
     public String getCardsOfHearts() {
