@@ -17,10 +17,14 @@ public class DeckOfCards {
         }
     }
 
-    public HandOfCards DealHand(int n) throws InvalidParameterException {
+    public ArrayList<PlayingCard> getCards() {
+        return cards;
+    }
+
+    public HandOfCards dealHand(int n) throws InvalidParameterException {
         Collections.shuffle(cards);
-        if(n<1 ||n>52){
-           throw new InvalidParameterException("Number must be bigger than 0, and smaller than 52");
+        if(n<5 ||n>52){
+           throw new InvalidParameterException("Number must be bigger than 4, and smaller than 52");
         }
         ArrayList<PlayingCard> hand = new ArrayList<>();
 
