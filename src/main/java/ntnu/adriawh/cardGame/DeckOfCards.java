@@ -2,6 +2,7 @@ package ntnu.adriawh.cardGame;
 
 import java.security.InvalidParameterException;
 import java.util.*;
+import java.util.stream.IntStream;
 
 /**
  * Class to represent a deck of cards
@@ -16,9 +17,7 @@ public class DeckOfCards {
     public DeckOfCards() {
         cards = new ArrayList<>();
         for (char c: suit) {
-            for(int i = 1; i<=13;i++){
-                cards.add(new PlayingCard(c, i));
-            }
+            IntStream.rangeClosed(1, 13).mapToObj(i -> new PlayingCard(c, i)).forEach(cards::add);
         }
     }
 
@@ -34,16 +33,13 @@ public class DeckOfCards {
      */
     public HandOfCards dealHand(int n) throws InvalidParameterException {
         Collections.shuffle(cards);
-        if(n<5 ||n>52){
-           throw new InvalidParameterException("Number must be bigger than 4, and smaller than 52");
-        }
+        assert n >= 5 && n <= 52 : "Number must be bigger than 4, and smaller than 52";
         ArrayList<PlayingCard> hand = new ArrayList<>();
 
         for(int i = 0; i<n; i++) {
             hand.add(cards.get(i));
         }
         return new HandOfCards(hand);
-
     }
 
 

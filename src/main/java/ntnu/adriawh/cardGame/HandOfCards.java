@@ -37,16 +37,16 @@ public class HandOfCards {
      *
      * @return yes or no
      */
-    public String getFlush() {
+    public boolean isFlush() {
         char[] suit = { 'S', 'H', 'D', 'C' };
         for(char c : suit){
             if(hand.stream()
                     .filter(playingCard -> Character.toString(playingCard.getSuit()).equals(Character.toString(c)))
                     .count() >= 5){
-                return "yes";
+                return true;
             }
         }
-        return "no";
+        return false;
     }
 
     /**
@@ -54,12 +54,8 @@ public class HandOfCards {
      *
      * @return yes or no
      */
-    public String getQueenOfSpades() {
-        if(hand.stream().anyMatch(playingCard -> playingCard.getAsString().equals("S12"))){
-            return "yes";
-        }else {
-            return "no";
-        }
+    public boolean containsQueenOfSpades() {
+        return hand.stream().anyMatch(playingCard -> playingCard.getAsString().equals("S12"));
     }
 
     /**
@@ -80,15 +76,9 @@ public class HandOfCards {
                .filter(playingCard -> Character.toString(playingCard.getSuit()).equals("H"))
                .collect(Collectors.toList());
 
-       if(cardsOfHearts.size() < 1){
-            return "no cards";
-        }
+       if(cardsOfHearts.size() < 1) return "no cards";
 
-        StringBuilder result = new StringBuilder();
-        for(PlayingCard p : cardsOfHearts){
-            result.append(p.getAsString()).append("  ");
-        }
-        return result.toString();
+       return cardsOfHearts.stream().map(p -> p.getAsString() + "  ").collect(Collectors.joining());
     }
 
 

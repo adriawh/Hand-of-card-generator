@@ -29,7 +29,7 @@ public class PrimaryController {
     private HandOfCards hand;
 
     /**
-     * Method called when the user presses the dealhand button
+     * Method called when the user presses the deal hand button
      *
      * Generates a hand of card in the said size from the user.
      *
@@ -92,8 +92,15 @@ public class PrimaryController {
         }
         cardsOfHearts.setText(hand.getCardsOfHearts());
         sumOfFaces.setText(String.valueOf(hand.getSumOfFaces()));
-        flush.setText(hand.getFlush());
-        queenOfSpades.setText(hand.getQueenOfSpades());
+        flush.setText(toText(hand.isFlush()));
+        queenOfSpades.setText(toText(hand.containsQueenOfSpades()));
 
+    }
+
+    private String toText(boolean b){
+        if(b){
+            return "yes";
+        }
+        return "no";
     }
 }
